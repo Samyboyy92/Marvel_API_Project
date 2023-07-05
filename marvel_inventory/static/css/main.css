@@ -1,0 +1,106 @@
+body {
+    background: url("../images/marvel_background.jpg") center / cover repeat;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.menu-bar {
+    border-radius: 25px;
+    height: fit-content;
+    display: inline-flex;
+    background-color: rgba(0, 0, 0, .4);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    align-items: center;
+    padding: 0 10px;
+    margin: 50px 0 0 0;
+    justify-content: center;
+    
+}
+
+.menu-bar li {
+    list-style: none;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 12px 16px;
+    margin: 0 8px;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.menu-bar li::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transition: .2s;
+    border-radius: 25px;
+}
+
+.menu-bar li:hover::before {
+    background: linear-gradient(to bottom, #e8edec, #d2d1d3);
+    box-shadow: 0px 3px 20px 0px black;
+    transform: scale(1.2);
+}
+
+.menu-bar li:hover {
+    color: black;
+}
+
+
+.hero-text {
+    z-index: 1;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    color: black;
+}
+
+.hero-text p {
+    font-size: 1.5rem;
+    margin-top: 0;
+    color: black;
+}
+
+.hero-section {
+    text-align: center;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 10%;
+    margin-top: 90%;
+     */
+}
+
+.hero-image {
+    /* background-image:url(../images/marvel_logo.png) ; */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    position: absolute;
+    top: 72%;
+    left: 0;
+
+}
+
+.main-div-cust{
+    color: white;
+    margin-top: 8%;
+    align-items: center;
+    max-width: fit-content;
+    max-height: fit-content;
+    height: fit-content;
+    box-sizing: content-box;
+    background-color: rgba(20, 20, 20, 0.575);
+    box-shadow: 0px 0px 10px 5px rgba(20, 20, 20, 0.575);
+    justify-content: center;
+    display: inline-block;
+}

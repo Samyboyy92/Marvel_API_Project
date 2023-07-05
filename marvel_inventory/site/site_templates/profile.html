@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages  %}
+        {% for cat, msg in messages %}
+            {% if cat == 'auth-success' %}
+                <div class="container">
+                    {{ msg }}
+                    <button type="button" class="close" data-dismiss="alert" onclick="this.parentElement.style.display='none'">&times;</button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<header class="hero-section">
+    <h3 class="header-text">Welcome to your Hero Collection!</h3>
+    <main class="container marvel_form">
+        <div class="row">
+            <aside class="col-12" >
+                <h2>Upload your Custom Hero!</h2>
+                {% include 'marvelform.html' %}
+            </aside>
+        </div>
+    </main>
+</header>
+
+<div class="container">
+    <h3>Here are your profile details</h3>
+    <ul class="list-group">
+        <li class="list-group-item">Email: {{ current_user.email }}</li>
+        <li class="list-group-item">Token: {{ current_user.token }}</li>
+    </ul>
+
+    <div class="row">
+        {% for hero in heros %}
+        <div class="card" style="width: 18rem;">
+            <img src="/marvel_inventory/static/images/marvel_logo.png" class="card-img-top" alt="marvel logo">
+            <div class="card-body">
+            <h5 class="card-title">{{ hero.name }}</h5>
+            <p class="card-text">{{ hero.description }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ hero.comics_appeared_in }}</li>
+            <li class="list-group-item">{{ hero.super_power }}</li>
+            <li class="list-group-item">{{ hero.date_created }}</li>
+            <li class="list-group-item">{{ hero.random_jokes }}</li>
+            </ul>
+            <div class="card-body">
+            <a href="#" class="card-link">Update Hero</a>
+            <a href="#" class="card-link">Delete Hero</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+        
+
+{% endblock content %}
